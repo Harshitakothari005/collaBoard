@@ -1,0 +1,16 @@
+services:
+  # =============================================
+  # Spring Boot Backend Service
+  # =============================================
+  - type: web
+    name: whiteboard-backend
+    runtime: docker
+    dockerfilePath: ./collaborative-whiteboard/backend/Dockerfile
+    dockerContext: ./collaborative-whiteboard/backend
+    envVars:
+      - key: DB_URL
+        sync: false   # You must set this manually in Render dashboard
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
