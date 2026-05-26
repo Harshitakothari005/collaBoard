@@ -1,0 +1,13 @@
+com\whiteboard\service\RoomService.class
+com\whiteboard\entity\RoomMember.class
+com\whiteboard\dto\DrawingMessage.class
+com\whiteboard\config\CorsConfig$1.class
+com\whiteboard\config\WebSocketConfig.class
+com\whiteboard\config\CorsConfig.class
+com\whiteboard\dto\RoomDTO.class
+com\whiteboard\CollaborativeWhiteboardApplication.class
+com\whiteboard\repository\RoomRepository.class
+com\whiteboard\repository\RoomMemberRepository.class
+com\whiteboard\entity\Room.class
+com\whiteboard\websocket\DrawingWebSocketHandler.class
+com\whiteboard\controller\RoomController.class

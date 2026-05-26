@@ -1,0 +1,12 @@
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\repository\RoomMemberRepository.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\controller\RoomController.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\dto\RoomDTO.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\entity\RoomMember.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\config\WebSocketConfig.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\service\RoomService.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\config\CorsConfig.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\CollaborativeWhiteboardApplication.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\websocket\DrawingWebSocketHandler.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\repository\RoomRepository.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\dto\DrawingMessage.java
+C:\Users\harshita\.gemini\antigravity\scratch\collaborative-whiteboard\backend\src\main\java\com\whiteboard\entity\Room.java

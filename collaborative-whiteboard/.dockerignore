@@ -1,0 +1,10 @@
+.git
+.github
+.idea
+**/node_modules
+**/dist
+**/target
+**/*.log
+**/.env
+**/.env.local
+**/.env.*.local

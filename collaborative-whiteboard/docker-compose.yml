@@ -1,0 +1,53 @@
+services:
+  database:
+    image: mysql:8.4
+    container_name: whiteboard-database
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-whiteboard_root_password}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-whiteboard_db}
+      MYSQL_USER: ${MYSQL_USER:-whiteboard_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-whiteboard_password}
+    expose:
+      - "3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/setup.sql:/docker-entrypoint-initdb.d/01-setup.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u$$MYSQL_USER -p$$MYSQL_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  backend:
+    build:
+      context: ./backend
+    container_name: whiteboard-backend
+    restart: unless-stopped
+    environment:
+      PORT: 8080
+      DB_URL: jdbc:mysql://database:3306/${MYSQL_DATABASE:-whiteboard_db}?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      DB_USERNAME: ${MYSQL_USER:-whiteboard_user}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-whiteboard_password}
+    expose:
+      - "8080"
+    depends_on:
+      database:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-/api}
+        VITE_WS_URL: ${VITE_WS_URL:-/ws/drawing}
+    container_name: whiteboard-frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
