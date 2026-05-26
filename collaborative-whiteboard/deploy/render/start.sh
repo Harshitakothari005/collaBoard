@@ -4,7 +4,18 @@ set -e
 : "${PORT:=10000}"
 : "${BACKEND_PORT:=8080}"
 
-export PORT BACKEND_PORT
+if [ -z "${DB_URL:-}" ] && [ -n "${DATABASE_URL:-}" ]; then
+  database_url="${DATABASE_URL#postgresql://}"
+  database_url="${database_url#postgres://}"
+  credentials="${database_url%%@*}"
+  host_and_database="${database_url#*@}"
+
+  export DB_USERNAME="${credentials%%:*}"
+  export DB_PASSWORD="${credentials#*:}"
+  export DB_URL="jdbc:postgresql://${host_and_database}"
+fi
+
+export PORT BACKEND_PORT DB_URL DB_USERNAME DB_PASSWORD
 
 envsubst '${PORT} ${BACKEND_PORT}' \
   < /etc/nginx/templates/default.conf.template \

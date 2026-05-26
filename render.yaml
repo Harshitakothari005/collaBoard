@@ -1,3 +1,9 @@
+databases:
+  - name: collaborative-whiteboard-db
+    plan: free
+    databaseName: collaboard_db
+    user: collaboard_user
+
 services:
   - type: web
     name: collaborative-whiteboard
@@ -7,9 +13,7 @@ services:
     envVars:
       - key: BACKEND_PORT
         value: 8080
-      - key: DB_URL
-        sync: false
-      - key: DB_USERNAME
-        sync: false
-      - key: DB_PASSWORD
-        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: collaborative-whiteboard-db
+          property: connectionString

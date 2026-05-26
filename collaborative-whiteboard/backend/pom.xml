@@ -48,6 +48,13 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- PostgreSQL Driver for Render Postgres deployment -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- Lombok (reduces boilerplate code) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
