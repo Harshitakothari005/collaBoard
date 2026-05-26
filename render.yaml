@@ -1,8 +1,13 @@
 databases:
-  - name: collaborative-whiteboard-db
+  - name: collaborative-whiteboard-db-fz6p
     plan: free
-    databaseName: collaboard_db
+    databaseName: collaboard_db_16w8
     user: collaboard_user
+    region: oregon
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: everywhere
+    postgresMajorVersion: "18"
 
 services:
   - type: web
@@ -15,5 +20,5 @@ services:
         value: 8080
       - key: DATABASE_URL
         fromDatabase:
-          name: collaborative-whiteboard-db
+          name: collaborative-whiteboard-db-fz6p
           property: connectionString
